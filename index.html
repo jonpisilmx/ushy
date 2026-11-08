@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,22 +21,21 @@
                         cream: '#F8F3E9',
                         creamDark: '#EDE4D3',
                         coral: '#FF3B30',
-                        coralDark: '#E02D22',
                         cobalt: '#1D4ED8',
                         sage: '#10B981',
                         peach: '#FFD166',
                         pinky: '#FFB7C5',
-                        darkBg: '#18181B'
+                        darkBg: '#111827'
                     },
                     fontFamily: {
                         display: ['Space Grotesk', 'sans-serif'],
                         sans: ['Plus Jakarta Sans', 'sans-serif']
                     },
                     boxShadow: {
-                        'retro-sm': '3px 3px 0px #18181B',
-                        'retro': '5px 5px 0px #18181B',
-                        'retro-lg': '8px 8px 0px #18181B',
-                        'retro-xl': '12px 12px 0px #18181B'
+                        'retro-sm': '3px 3px 0px #111827',
+                        'retro': '5px 5px 0px #111827',
+                        'retro-lg': '8px 8px 0px #111827',
+                        'retro-xl': '12px 12px 0px #111827'
                     }
                 }
             }
@@ -46,39 +45,67 @@
     <style>
         body {
             background-color: #F8F3E9;
-            color: #18181B;
+            color: #111827;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
 
-        .sticker {
-            background-color: #ffffff;
-            border: 4px solid #ffffff;
-            box-shadow: 6px 6px 0px rgba(24, 24, 27, 0.9);
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
+        /* ESCALA TIPOGRÁFICA CONTROLADA */
+        .type-titan { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(2.25rem, 5vw, 3.75rem); leading-trim: both; line-height: 1.05; letter-spacing: -0.03em; }
+        .type-h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.15; letter-spacing: -0.02em; }
+        .type-h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.125rem, 2vw, 1.35rem); line-height: 1.25; }
+        .type-body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.938rem; line-height: 1.6; font-weight: 500; }
+        .type-caption { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.813rem; line-height: 1.4; font-weight: 600; }
+
+        /* STICKER & CARDS NEO-BRUTALISTAS */
+        .sticker-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            border: 2px solid #111827;
+            box-shadow: 3px 3px 0px #111827;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .sticker:hover {
-            transform: scale(1.05) rotate(-2deg);
-            box-shadow: 9px 9px 0px rgba(24, 24, 27, 1);
+        .card-neo {
+            background: #ffffff;
+            border: 2.5px solid #111827;
+            box-shadow: 6px 6px 0px #111827;
+            border-radius: 1.5rem;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .sticker-alt:hover {
-            transform: scale(1.05) rotate(2deg);
+        .card-neo:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #111827;
         }
 
-        .btn-pop {
+        .btn-neo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: 2px solid #111827;
+            box-shadow: 4px 4px 0px #111827;
+            border-radius: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
             transition: all 0.15s ease;
-            box-shadow: 4px 4px 0px #18181B;
+            user-select: none;
         }
-        .btn-pop:hover {
+        .btn-neo:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px #18181B;
+            box-shadow: 6px 6px 0px #111827;
         }
-        .btn-pop:active {
+        .btn-neo:active {
             transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #18181B;
+            box-shadow: 1px 1px 0px #111827;
         }
 
         .marquee-container {
@@ -94,7 +121,7 @@
             justify-content: space-around;
             min-width: 100%;
             gap: 2rem;
-            animation: scroll 22s linear infinite;
+            animation: scroll 20s linear infinite;
         }
 
         @keyframes scroll {
@@ -102,135 +129,105 @@
             to { transform: translateX(-100%); }
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F8F3E9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #FF3B30;
-            border-radius: 999px;
-            border: 2px solid #F8F3E9;
-        }
-
         .tab-btn.active {
-            background-color: #FF3B30;
-            color: #ffffff;
-            border-color: #18181B;
+            background-color: #FF3B30 !important;
+            color: #ffffff !important;
+            box-shadow: 4px 4px 0px #111827 !important;
         }
     </style>
 </head>
 <body class="antialiased selection:bg-coral selection:text-white">
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 ease-out bg-darkBg text-white px-6 py-4 rounded-2xl shadow-retro-lg border-2 border-white flex items-center space-x-3">
-        <i class="fa-solid fa-circle-check text-sage text-xl"></i>
-        <span id="toast-message" class="font-bold text-sm">Mensaje de notificación</span>
+    <!-- Toast Component -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 ease-out bg-darkBg text-white px-5 py-3.5 rounded-2xl border-2 border-white shadow-retro-lg flex items-center space-x-3">
+        <i class="fa-solid fa-sparkles text-peach text-lg"></i>
+        <span id="toast-message" class="type-caption text-white">¡Operación realizada!</span>
     </div>
 
-    <!-- NAVEGACIÓN -->
+    <!-- HEADER NAVIGATION -->
     <header class="sticky top-4 z-40 px-4 sm:px-8 max-w-7xl mx-auto">
-        <nav class="bg-white/90 backdrop-blur-md border-2 border-darkBg rounded-3xl p-3 sm:p-4 shadow-retro flex justify-between items-center">
+        <nav class="bg-white/95 backdrop-blur-md border-2.5 border-darkBg rounded-2xl p-3 sm:p-4 shadow-retro flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2 group">
-                <span class="w-10 h-10 bg-coral rounded-2xl flex items-center justify-center text-white font-display font-black text-xl border-2 border-darkBg shadow-retro-sm group-hover:rotate-12 transition-transform">
+                <span class="w-10 h-10 bg-coral rounded-xl flex items-center justify-center text-white font-display font-black text-xl border-2 border-darkBg shadow-retro-sm group-hover:rotate-12 transition-transform">
                     B
                 </span>
-                <span class="font-display font-extrabold text-xl tracking-tight text-darkBg">BEBITO<span class="text-coral">.MEDIA</span></span>
+                <span class="font-display font-black text-xl tracking-tight text-darkBg">BEBITO<span class="text-coral">.STUDIO</span></span>
             </a>
 
-            <!-- Menu Desktop -->
-            <div class="hidden lg:flex items-center space-x-6 font-bold text-sm">
-                <a href="#planes" class="hover:text-coral transition-colors">Planes de Contenido</a>
-                <a href="#edicion" class="hover:text-coral transition-colors">Edición de Video</a>
-                <a href="#meta-ads" class="hover:text-coral transition-colors">Meta Ads</a>
-                <a href="#politicas" class="hover:text-coral transition-colors">Políticas</a>
-                <a href="#alcances" class="hover:text-coral transition-colors">Alcances</a>
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-6 font-display font-bold text-xs uppercase tracking-wide">
+                <a href="#planes" class="hover:text-coral transition-colors">1. Planes</a>
+                <a href="#edicion" class="hover:text-coral transition-colors">2. Edición RAW</a>
+                <a href="#meta-ads" class="hover:text-coral transition-colors">3. Meta Ads</a>
+                <a href="#politicas" class="hover:text-coral transition-colors">4. Políticas</a>
+                <a href="#alcances" class="hover:text-coral transition-colors">5. Alcances</a>
             </div>
 
-            <div class="flex items-center space-x-3">
-                <a href="https://wa.me/?text=Hola!%20Me%20interesa%20contratar%20tus%20servicios%20de%20creación%20de%20contenido" target="_blank" class="btn-pop bg-peach text-darkBg border-2 border-darkBg font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-2xl flex items-center space-x-2">
-                    <i class="fa-brands fa-whatsapp text-lg text-darkBg"></i>
-                    <span class="hidden sm:inline">Iniciar Proyecto</span>
-                </a>
-            </div>
+            <a href="https://wa.me/?text=Hola!%20Me%20interesa%20revisar%20una%20propuesta%20de%20contenido" target="_blank" class="btn-neo bg-peach text-darkBg px-4 py-2.5 text-xs sm:text-sm">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span class="hidden sm:inline">Agendar Cita</span>
+            </a>
         </nav>
     </header>
 
-    <!-- HERO SECTION & INTRODUCCIÓN -->
-    <section id="hero" class="pt-10 pb-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="bg-creamDark/70 border-2 border-darkBg rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-retro-lg relative overflow-hidden">
+    <!-- HERO SECTION -->
+    <section id="hero" class="pt-10 pb-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="bg-creamDark/80 border-2.5 border-darkBg rounded-[2.5rem] p-6 sm:p-12 lg:p-14 shadow-retro-lg relative">
             
-            <div class="absolute -top-4 -right-4 hidden lg:block rotate-6 z-10">
-                <div class="sticker bg-peach px-6 py-3 rounded-full text-darkBg font-display font-bold text-sm uppercase tracking-wider">
-                    🚀 Propuesta Comercial 2026
-                </div>
+            <div class="absolute -top-4 right-8 hidden md:block rotate-[3deg] z-10">
+                <span class="sticker-badge bg-peach text-darkBg">
+                    ⚡ PROPRIETARY DOSSIER 2026
+                </span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 bg-coral/10 border-2 border-coral px-4 py-1.5 rounded-full">
-                        <span class="w-2.5 h-2.5 rounded-full bg-coral animate-ping"></span>
-                        <span class="text-coral font-extrabold text-xs tracking-wider uppercase">Servicios de Marketing Digital</span>
-                    </div>
+                    <span class="sticker-badge bg-coral text-white rotate-[-1.5deg]">
+                        <i class="fa-solid fa-fire"></i> Servicio Integral de Contenido
+                    </span>
 
-                    <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-6xl leading-[1.08] tracking-tight text-darkBg">
-                        Servicios de <span class="bg-coral text-white px-3 py-1 rounded-2xl inline-block -rotate-1 border-2 border-darkBg shadow-retro-sm">Creación de Contenido</span> & Marketing Digital
+                    <h1 class="type-titan text-darkBg">
+                        Hagamos que tu contenido <span class="bg-coral text-white px-3 py-0.5 rounded-2xl inline-block rotate-[-1deg] border-2 border-darkBg shadow-retro-sm">trabaje a favor</span> de tu marca.
                     </h1>
 
-                    <div class="bg-white p-5 rounded-2xl border-2 border-darkBg shadow-retro-sm space-y-2">
-                        <p class="font-display font-bold text-xl text-coral flex items-center space-x-2">
-                            <span>¡Hagamos que tu contenido trabaje a favor de tu marca!</span>
-                        </p>
-                        <p class="text-darkBg/80 font-medium text-sm sm:text-base leading-relaxed">
-                            Mi intención es convertirme en un apoyo estratégico para tu comunicación digital, transformando tus ideas y conocimientos en contenido que aporte valor real, genere confianza duradera y te acerque a tus objetivos profesionales.
-                        </p>
-                    </div>
+                    <p class="type-body text-darkBg/80">
+                        Una solución integral para profesionales que desean mantener sus redes sociales activas, con contenido estratégico, atractivo y alineado con sus objetivos de comunicación.
+                    </p>
 
-                    <div class="pt-2 flex flex-wrap gap-4 items-center">
-                        <a href="#planes" class="btn-pop bg-cobalt text-white border-2 border-darkBg font-extrabold text-base px-6 py-3.5 rounded-2xl flex items-center space-x-3">
-                            <span>Ver Planes de Contenido</span>
-                            <i class="fa-solid fa-arrow-down"></i>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#planes" class="btn-neo bg-cobalt text-white px-6 py-3.5 text-sm">
+                            <span>Ver Paquetes & Tarifas</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
                         </a>
-                        <a href="#edicion" class="btn-pop bg-white text-darkBg border-2 border-darkBg font-bold text-base px-6 py-3.5 rounded-2xl flex items-center space-x-2">
+                        <a href="#edicion" class="btn-neo bg-white text-darkBg px-6 py-3.5 text-sm">
                             <i class="fa-solid fa-scissors text-coral"></i>
-                            <span>Edición de Video RAW</span>
+                            <span>Edición RAW</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Card Presentación Hero -->
-                <div class="lg:col-span-5 relative">
-                    <div class="bg-peach border-2 border-darkBg rounded-[2rem] p-6 shadow-retro-lg text-darkBg rotate-1 hover:rotate-0 transition-transform duration-300">
-                        <div class="bg-white text-darkBg rounded-2xl p-5 border-2 border-darkBg space-y-4">
+                <!-- Hero Interactive Card -->
+                <div class="lg:col-span-5">
+                    <div class="card-neo bg-peach p-6 rotate-[1.5deg] hover:rotate-0">
+                        <div class="bg-white rounded-xl p-5 border-2 border-darkBg space-y-4">
                             <div class="flex justify-between items-center border-b-2 border-darkBg/10 pb-3">
-                                <span class="font-display font-extrabold text-lg">Partner de Estrategia</span>
-                                <span class="bg-sage text-white text-xs font-bold px-3 py-1 rounded-full border border-darkBg">Disponible</span>
+                                <span class="font-display font-extrabold text-base text-darkBg">🎯 Tu Partner Digital</span>
+                                <span class="bg-sage text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-darkBg">100% ACTIVO</span>
                             </div>
 
-                            <p class="text-sm font-semibold text-darkBg/80 italic">
+                            <p class="type-caption text-darkBg/80 italic">
                                 "Concéntrate en lo que mejor sabes hacer, mientras trabajamos juntos para que tu presencia digital comunique todo el valor que tienes para ofrecer."
                             </p>
 
-                            <div class="space-y-2 pt-1">
-                                <div class="flex items-center space-x-3 text-xs font-bold bg-cream p-2.5 rounded-xl border border-darkBg/20">
-                                    <i class="fa-solid fa-circle-check text-sage text-base"></i>
-                                    <span>Estrategia Digital Personalizada</span>
+                            <div class="space-y-2">
+                                <div class="flex items-center space-x-2.5 type-caption bg-cream p-2 rounded-lg border border-darkBg/20">
+                                    <i class="fa-solid fa-circle-check text-sage text-sm"></i>
+                                    <span>Estrategia + Guiones + Edición</span>
                                 </div>
-                                <div class="flex items-center space-x-3 text-xs font-bold bg-cream p-2.5 rounded-xl border border-darkBg/20">
-                                    <i class="fa-solid fa-circle-check text-sage text-base"></i>
-                                    <span>Edición Pro de Reels & Carruseles</span>
+                                <div class="flex items-center space-x-2.5 type-caption bg-cream p-2 rounded-lg border border-darkBg/20">
+                                    <i class="fa-solid fa-circle-check text-sage text-sm"></i>
+                                    <span>Publicación Programada Mensual</span>
                                 </div>
-                                <div class="flex items-center space-x-3 text-xs font-bold bg-cream p-2.5 rounded-xl border border-darkBg/20">
-                                    <i class="fa-solid fa-circle-check text-sage text-base"></i>
-                                    <span>Optimización en Meta Ads</span>
-                                </div>
-                            </div>
-
-                            <div class="text-center pt-2">
-                                <span class="inline-block bg-pinky text-darkBg border border-darkBg px-4 py-1.5 rounded-full font-display font-extrabold text-xs">
-                                    ¡Será un gusto trabajar contigo! ✨
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -239,21 +236,21 @@
         </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="bg-darkBg text-white py-3.5 border-y-2 border-darkBg my-4 rotate-1 scale-105 shadow-retro">
-        <div class="marquee-container font-display font-extrabold text-base uppercase tracking-wider">
+    <!-- MARQUEE DE SERVICIOS -->
+    <div class="bg-darkBg text-white py-3 border-y-2 border-darkBg my-4 rotate-[-0.5deg] shadow-retro">
+        <div class="marquee-container font-display font-black text-sm uppercase tracking-wider">
             <div class="marquee-content">
-                <span class="flex items-center space-x-3">
+                <span class="flex items-center space-x-4">
                     <span class="text-peach">★</span> <span>Estrategia Digital</span>
                     <span class="text-coral">★</span> <span>Edición de Reels</span>
-                    <span class="text-sage">★</span> <span>Diseño Gráfico</span>
+                    <span class="text-sage">★</span> <span>Diseño de Carruseles</span>
                     <span class="text-cobalt">★</span> <span>Meta Ads</span>
                     <span class="text-pinky">★</span> <span>Redacción de Captions</span>
                 </span>
-                <span class="flex items-center space-x-3">
+                <span class="flex items-center space-x-4">
                     <span class="text-peach">★</span> <span>Estrategia Digital</span>
                     <span class="text-coral">★</span> <span>Edición de Reels</span>
-                    <span class="text-sage">★</span> <span>Diseño Gráfico</span>
+                    <span class="text-sage">★</span> <span>Diseño de Carruseles</span>
                     <span class="text-cobalt">★</span> <span>Meta Ads</span>
                     <span class="text-pinky">★</span> <span>Redacción de Captions</span>
                 </span>
@@ -262,501 +259,368 @@
     </div>
 
     <!-- SECCIÓN 1: PLANES DE CREACIÓN DE CONTENIDO -->
-    <section id="planes" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span class="bg-coral text-white font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-darkBg">Solución 360°</span>
-            <h2 class="font-display font-black text-3xl sm:text-5xl text-darkBg">1. Planes de Creación de Contenido</h2>
-            <p class="text-darkBg/80 font-medium text-base">
-                Una solución integral para profesionales que desean mantener sus redes sociales activas, con contenido estratégico, atractivo y alineado con sus objetivos de comunicación.
-            </p>
+    <section id="planes" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+            <span class="sticker-badge bg-coral text-white">01. CREACIÓN INTEGRAL</span>
+            <h2 class="type-h2 text-darkBg">Planes de Creación de Contenido</h2>
+            <p class="type-body text-darkBg/80">Mantén tus redes sociales activas con publicaciones estratégicas, dinámicas y optimizadas.</p>
         </div>
 
-        <!-- ¿Qué incluyen todos los planes? -->
-        <div class="bg-white border-2 border-darkBg rounded-[2.5rem] p-6 sm:p-10 shadow-retro-lg mb-12">
-            <div class="flex items-center space-x-3 mb-8">
-                <span class="w-10 h-10 bg-peach rounded-2xl flex items-center justify-center text-darkBg border-2 border-darkBg font-display font-black text-lg">
+        <!-- ¿Qué incluyen todos los planes? Grid de 8 ítems -->
+        <div class="bg-white border-2.5 border-darkBg rounded-3xl p-6 sm:p-8 shadow-retro-lg mb-10">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-9 h-9 bg-peach rounded-xl flex items-center justify-center text-darkBg border-2 border-darkBg font-display font-black text-base shadow-retro-sm">
                     <i class="fa-solid fa-box-open"></i>
                 </span>
-                <h3 class="font-display font-black text-2xl sm:text-3xl text-darkBg">¿Qué incluyen todos los planes?</h3>
+                <h3 class="type-h3 text-darkBg">¿Qué incluyen todos los planes?</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Ítem 1 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-coral text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-chess-board"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Estrategia Digital</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Planeación de contenidos basada en la estrategia global, objetivos comerciales y lineamientos acordados.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-coral text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-chess"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Estrategia Digital</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Planeación de contenidos tomando como base tus objetivos de negocio.</p>
                 </div>
 
-                <!-- Ítem 2 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-cobalt text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Guiones de Video</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Desarrollo y estructuración de ideas para comunicar tus servicios, conocimientos y diferenciadores.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-cobalt text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Guiones de Video</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Estructuración de ideas para comunicar tus servicios y diferenciadores.</p>
                 </div>
 
-                <!-- Ítem 3 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-film"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Edición de Video</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Edición de material audiovisual para crear reels dinámicos, fluidos y profesionales.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-sage text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-film"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Edición de Video</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Edición de material audiovisual para reels dinámicos y profesionales.</p>
                 </div>
 
-                <!-- Ítem 4 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-peach text-darkBg flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-image"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Diseño de Portadas</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Creación de portadas personalizadas para mantener coherencia visual en tu feed.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-peach text-darkBg flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-image"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Diseño de Portadas</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Portadas con identidad visual coherente para tu feed.</p>
                 </div>
 
-                <!-- Ítem 5 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-pinky text-darkBg flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Diseño Gráfico</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Elaboración de publicaciones estáticas y carruseles educativos o de venta.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-pinky text-darkBg flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Diseño Gráfico</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Elaboración de publicaciones estáticas y carruseles informativos.</p>
                 </div>
 
-                <!-- Ítem 6 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-coral text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-align-left"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Redacción de Captions</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Textos optimizados con copywriting, llamados a la acción (CTA) y hashtags oportunos.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-coral text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-align-left"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Redacción de Captions</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Textos optimizados con llamados a la acción y hashtags pertinentes.</p>
                 </div>
 
-                <!-- Ítem 7 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-cobalt text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Publicación Programada</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Programación y subida del material a las redes sociales acordadas sin que te preocupes.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-cobalt text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <h4 class="font-display font-bold text-xs text-darkBg mb-1">Publicación de Contenido</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Programación y subida del material a las redes sociales acordadas.</p>
                 </div>
 
-                <!-- Ítem 8 -->
-                <div class="bg-cream p-5 rounded-2xl border-2 border-darkBg space-y-2 hover:-translate-y-1 transition-transform">
-                    <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center font-bold border border-darkBg">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <h4 class="font-display font-bold text-lg text-darkBg">Reporte Mensual</h4>
-                    <p class="text-xs text-darkBg/70 font-medium">Resumen del contenido publicado y seguimiento de los resultados de rendimiento.</p>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg hover:-translate-y-1 transition-transform">
+                    <div class="w-8 h-8 rounded-lg bg-sage text-white flex items-center justify-center text-xs border border-darkBg mb-2"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4 class="font-display font-bold text-sm text-darkBg mb-1">Reporte Mensual</h4>
+                    <p class="type-caption text-darkBg/70 font-medium">Resumen del contenido publicado y seguimiento de resultados.</p>
                 </div>
             </div>
         </div>
 
-        <!-- TARJETAS / NIVELES DE PLANES -->
-        <div class="mb-12">
-            <h3 class="font-display font-extrabold text-2xl text-darkBg mb-6 text-center">Elige el plan que mejor se adapte a tus necesidades</h3>
+        <!-- TARJETAS DE PRECIOS DE PLANES -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Plan Esencial -->
-                <div class="bg-white border-2 border-darkBg rounded-3xl p-6 shadow-retro flex flex-col justify-between hover:-translate-y-2 transition-transform">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-start">
-                            <span class="bg-cream border border-darkBg text-darkBg font-display font-bold text-xs px-3 py-1 rounded-full uppercase">Plan Inicial</span>
-                            <i class="fa-solid fa-seedling text-2xl text-sage"></i>
+            <!-- Paquete 1 -->
+            <div class="card-neo p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="sticker-badge bg-cream border-darkBg text-darkBg">PAQUETE 1</span>
+                        <i class="fa-solid fa-bolt text-xl text-sage"></i>
+                    </div>
+                    <div>
+                        <h4 class="type-h2 text-darkBg">$4,900 <span class="text-sm font-bold text-darkBg/60">MXN/mes</span></h4>
+                        <p class="type-caption text-darkBg/70 mt-1">8 publicaciones mensuales (reels / posts / carruseles)</p>
+                    </div>
+                    <div class="bg-cream p-3 rounded-xl border border-darkBg/20 space-y-1.5 type-caption">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>Ideal para presencia constante</span>
                         </div>
-                        <h4 class="font-display font-black text-2xl text-darkBg">Plan 8 Piezas</h4>
-                        <p class="text-xs text-darkBg/70 font-medium">Ideal para mantener presencia constante sin saturar la agenda.</p>
-                        
-                        <div class="bg-cream p-4 rounded-2xl border border-darkBg/20 space-y-2">
-                            <div class="flex items-center space-x-2 text-xs font-bold">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>8 Piezas de contenido al mes</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/70">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Reels, Carruseles o Estáticos</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/70">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Estrategia + Programación incluida</span>
-                            </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>Estrategia + Programación</span>
                         </div>
                     </div>
-                    <button onclick="copyToClipboard('Plan 8 Piezas seleccionado', 'Cotización enviada al simulador')" class="mt-6 w-full btn-pop bg-cream text-darkBg border border-darkBg font-bold text-sm py-3 rounded-xl">
-                        Solicitar Cotización
-                    </button>
                 </div>
-
-                <!-- Plan Pro (Destacado) -->
-                <div class="bg-coral text-white border-2 border-darkBg rounded-3xl p-6 shadow-retro-lg flex flex-col justify-between relative transform lg:-translate-y-3">
-                    <div class="absolute -top-3.5 right-6 bg-peach text-darkBg border border-darkBg font-display font-black text-xs px-3 py-1 rounded-full uppercase">
-                        Más Popular 🔥
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-start">
-                            <span class="bg-white/20 text-white border border-white/30 font-display font-bold text-xs px-3 py-1 rounded-full uppercase">Plan Crecimiento</span>
-                            <i class="fa-solid fa-rocket text-2xl text-peach"></i>
-                        </div>
-                        <h4 class="font-display font-black text-2xl text-white">Plan 12 Piezas</h4>
-                        <p class="text-xs text-white/90 font-medium">El balance perfecto entre posicionamiento, variedad y autoridad.</p>
-                        
-                        <div class="bg-white text-darkBg p-4 rounded-2xl border border-darkBg/20 space-y-2">
-                            <div class="flex items-center space-x-2 text-xs font-bold">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>12 Piezas de contenido al mes</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/80">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Distribución a medida (Reels / Estáticos)</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/80">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Soporte prioritario en guiones</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="copyToClipboard('Plan 12 Piezas seleccionado', 'Cotización enviada al simulador')" class="mt-6 w-full btn-pop bg-peach text-darkBg border border-darkBg font-extrabold text-sm py-3 rounded-xl">
-                        Seleccionar Plan Pro
-                    </button>
-                </div>
-
-                <!-- Plan Premium -->
-                <div class="bg-white border-2 border-darkBg rounded-3xl p-6 shadow-retro flex flex-col justify-between hover:-translate-y-2 transition-transform">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-start">
-                            <span class="bg-cream border border-darkBg text-darkBg font-display font-bold text-xs px-3 py-1 rounded-full uppercase">Plan Escala</span>
-                            <i class="fa-solid fa-crown text-2xl text-peach"></i>
-                        </div>
-                        <h4 class="font-display font-black text-2xl text-darkBg">Plan 16+ Piezas</h4>
-                        <p class="text-xs text-darkBg/70 font-medium">Para dominar tu nicho con alta frecuencia y máximo alcance.</p>
-                        
-                        <div class="bg-cream p-4 rounded-2xl border border-darkBg/20 space-y-2">
-                            <div class="flex items-center space-x-2 text-xs font-bold">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>16 o más Piezas mensuales</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/70">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Cobertura de múltiples formatos</span>
-                            </div>
-                            <div class="flex items-center space-x-2 text-xs text-darkBg/70">
-                                <i class="fa-solid fa-check text-sage"></i>
-                                <span>Reunión estratégica de seguimiento</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="copyToClipboard('Plan 16+ Piezas seleccionado', 'Cotización enviada al simulador')" class="mt-6 w-full btn-pop bg-cream text-darkBg border border-darkBg font-bold text-sm py-3 rounded-xl">
-                        Cotizar a Medida
-                    </button>
-                </div>
+                <button onclick="selectPlan('Paquete 1 ($4,900 MXN)')" class="mt-6 w-full btn-neo bg-cream text-darkBg py-3 text-xs">
+                    Seleccionar Paquete 1
+                </button>
             </div>
+
+            <!-- Paquete 2 (Destacado) -->
+            <div class="card-neo bg-coral text-white p-6 flex flex-col justify-between relative transform md:-translate-y-2">
+                <div class="absolute -top-3.5 right-6">
+                    <span class="sticker-badge bg-peach text-darkBg rotate-[2deg]">MÁS POPULAR 🔥</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="sticker-badge bg-white/20 border-white text-white">PAQUETE 2</span>
+                        <i class="fa-solid fa-rocket text-xl text-peach"></i>
+                    </div>
+                    <div>
+                        <h4 class="type-h2 text-white">$5,900 <span class="text-sm font-bold text-white/80">MXN/mes</span></h4>
+                        <p class="type-caption text-white/90 mt-1">10 publicaciones mensuales (reels / posts / carruseles)</p>
+                    </div>
+                    <div class="bg-white text-darkBg p-3 rounded-xl border border-darkBg/20 space-y-1.5 type-caption">
+                        <div class="flex items-center space-x-2 font-bold">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>El balance perfecto de aceleración</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-darkBg/80">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>Soporte prioritario en guiones</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="selectPlan('Paquete 2 ($5,900 MXN)')" class="mt-6 w-full btn-neo bg-peach text-darkBg py-3 text-xs">
+                    Seleccionar Paquete 2
+                </button>
+            </div>
+
+            <!-- Paquete 3 -->
+            <div class="card-neo p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="sticker-badge bg-cream border-darkBg text-darkBg">PAQUETE 3</span>
+                        <i class="fa-solid fa-crown text-xl text-peach"></i>
+                    </div>
+                    <div>
+                        <h4 class="type-h2 text-darkBg">$6,500 <span class="text-sm font-bold text-darkBg/60">MXN/mes</span></h4>
+                        <p class="type-caption text-darkBg/70 mt-1">12 publicaciones mensuales (reels / posts / carruseles)</p>
+                    </div>
+                    <div class="bg-cream p-3 rounded-xl border border-darkBg/20 space-y-1.5 type-caption">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>Máxima frecuencia & alcance</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sage"></i>
+                            <span>Cobertura multitema</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="selectPlan('Paquete 3 ($6,500 MXN)')" class="mt-6 w-full btn-neo bg-cream text-darkBg py-3 text-xs">
+                    Seleccionar Paquete 3
+                </button>
+            </div>
+
         </div>
 
-        <!-- CONSIDERACIONES DEL SERVICIO -->
-        <div class="bg-creamDark/60 border-2 border-darkBg rounded-3xl p-6 sm:p-8 shadow-retro">
-            <h4 class="font-display font-bold text-xl text-darkBg flex items-center space-x-2 mb-4">
-                <i class="fa-solid fa-triangle-exclamation text-coral"></i>
+        <!-- CONSIDERACIONES DEL SERVICIO DE CONTENIDO -->
+        <div class="bg-creamDark/70 border-2.5 border-darkBg rounded-2xl p-5 sm:p-6 shadow-retro">
+            <h4 class="type-h3 text-darkBg mb-3 flex items-center space-x-2">
+                <i class="fa-solid fa-circle-info text-coral"></i>
                 <span>Consideraciones del servicio:</span>
             </h4>
-            <ul class="space-y-3 text-sm text-darkBg/80 font-medium">
-                <li class="flex items-start space-x-3">
-                    <span class="w-2 h-2 rounded-full bg-coral mt-2 flex-shrink-0"></span>
-                    <span><strong>Distribución flexible:</strong> Cada pieza de contenido equivale a una publicación. Puedes distribuir tu paquete libremente entre reels, publicaciones estáticas y carruseles según tus necesidades.</span>
+            <ul class="space-y-2 type-caption text-darkBg/80">
+                <li class="flex items-start space-x-2">
+                    <span class="text-coral font-bold">•</span>
+                    <span>Cada pieza de contenido equivale a una publicación. Puedes distribuir tu paquete libremente entre reels, publicaciones estáticas y carruseles.</span>
                 </li>
-                <li class="flex items-start space-x-3">
-                    <span class="w-2 h-2 rounded-full bg-coral mt-2 flex-shrink-0"></span>
-                    <span><strong>Alineación estratégica:</strong> La estrategia digital y planeación de contenidos se desarrollan tomando como referencia la estrategia global y objetivos de negocio que proporciones.</span>
+                <li class="flex items-start space-x-2">
+                    <span class="text-coral font-bold">•</span>
+                    <span>La estrategia digital y planeación de contenidos se desarrollan tomando como referencia la estrategia global y objetivos comerciales que proporciones.</span>
                 </li>
-                <li class="flex items-start space-x-3">
-                    <span class="w-2 h-2 rounded-full bg-coral mt-2 flex-shrink-0"></span>
-                    <span><strong>Traducción al entorno digital:</strong> Mi trabajo consiste en trasladar esos objetivos al entorno digital mediante contenidos efectivos que mantengan una línea coherente y conecten con la audiencia.</span>
+                <li class="flex items-start space-x-2">
+                    <span class="text-coral font-bold">•</span>
+                    <span>Mi trabajo consiste en trasladar esos objetivos al entorno digital mediante contenidos que comuniquen de manera efectiva y conecten con la audiencia.</span>
                 </li>
-                <li class="flex items-start space-x-3">
-                    <span class="w-2 h-2 rounded-full bg-coral mt-2 flex-shrink-0"></span>
-                    <span><strong>Delimitación:</strong> El servicio no contempla el desarrollo de una estrategia comercial o de posicionamiento de marca desde cero.</span>
+                <li class="flex items-start space-x-2">
+                    <span class="text-coral font-bold">•</span>
+                    <span>El servicio no contempla el desarrollo de una estrategia comercial o de posicionamiento de marca desde cero.</span>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: SERVICIO DE EDICIÓN DE VIDEO -->
-    <section id="edicion" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="bg-white border-2 border-darkBg rounded-[2.5rem] p-6 sm:p-12 shadow-retro-lg">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="bg-cobalt text-white font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-darkBg">Modo Creador Solo</span>
-                <h2 class="font-display font-black text-3xl sm:text-5xl text-darkBg">2. Servicio de Edición de Video</h2>
-                <p class="font-display font-bold text-lg text-coral">
-                    ¿Ya tienes las ideas, grabas tu propio contenido y solamente necesitas ayuda con la edición?
-                </p>
-                <p class="text-darkBg/80 font-medium text-sm sm:text-base">
-                    Este servicio es ideal para profesionales que producen su propio material audiovisual y buscan darle un acabado más atractivo, dinámico y profesional, sin tener que invertir su valioso tiempo en editar.
-                </p>
+    <!-- SECCIÓN 2: SERVICIO DE EDICIÓN DE VIDEO RAW -->
+    <section id="edicion" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="card-neo p-6 sm:p-10">
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-2">
+                <span class="sticker-badge bg-cobalt text-white">02. EDICIÓN ESPECIALIZADA</span>
+                <h2 class="type-h2 text-darkBg">Servicio de Edición de Video</h2>
+                <p class="type-caption text-coral font-bold">¿Ya tienes las ideas, grabas tu propio contenido y solamente necesitas ayuda con la edición?</p>
+                <p class="type-body text-darkBg/80">Ideal para profesionales que producen su propio material y buscan un acabado atractivo, dinámico y profesional sin invertir tiempo editando.</p>
             </div>
 
-            <!-- PASO A PASO / CÓMO FUNCIONA -->
-            <div class="mb-12">
-                <h3 class="font-display font-black text-2xl text-darkBg mb-6 text-center">¿Cómo funciona?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-cream p-6 rounded-3xl border-2 border-darkBg relative">
-                        <span class="w-8 h-8 rounded-full bg-coral text-white font-display font-black text-sm flex items-center justify-center border border-darkBg mb-3">1</span>
-                        <h4 class="font-display font-bold text-lg text-darkBg">Compartes tu RAW</h4>
-                        <p class="text-xs text-darkBg/70 font-medium mt-1">Me envías tu material original grabado sin editar en alta resolución.</p>
-                    </div>
-                    <div class="bg-cream p-6 rounded-3xl border-2 border-darkBg relative">
-                        <span class="w-8 h-8 rounded-full bg-cobalt text-white font-display font-black text-sm flex items-center justify-center border border-darkBg mb-3">2</span>
-                        <h4 class="font-display font-bold text-lg text-darkBg">Alineación de Estilo</h4>
-                        <p class="text-xs text-darkBg/70 font-medium mt-1">Acordamos el tono, ritmo, subtítulos y elementos dinámicos en una reunión previa.</p>
-                    </div>
-                    <div class="bg-cream p-6 rounded-3xl border-2 border-darkBg relative">
-                        <span class="w-8 h-8 rounded-full bg-sage text-white font-display font-black text-sm flex items-center justify-center border border-darkBg mb-3">3</span>
-                        <h4 class="font-display font-bold text-lg text-darkBg">Edición & Entrega</h4>
-                        <p class="text-xs text-darkBg/70 font-medium mt-1">Me encargo del montaje completo para entregarte piezas 100% listas para publicar.</p>
-                    </div>
+            <!-- TABLA Y TARIFAS DE EDICIÓN RAW -->
+            <div class="mb-8">
+                <h3 class="type-h3 text-darkBg mb-4 text-center">Tarifas por Video (Material RAW)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border-2 border-darkBg rounded-2xl overflow-hidden shadow-retro-sm">
+                        <thead>
+                            <tr class="bg-peach border-b-2 border-darkBg font-display font-black text-xs sm:text-sm text-darkBg uppercase">
+                                <th class="p-3.5 border-r-2 border-darkBg">Duración del video final</th>
+                                <th class="p-3.5 border-r-2 border-darkBg">Duración máxima del RAW</th>
+                                <th class="p-3.5">Precio unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody class="type-caption font-semibold divide-y-2 divide-darkBg bg-white">
+                            <tr class="hover:bg-cream transition-colors">
+                                <td class="p-3.5 border-r-2 border-darkBg">30 a 60 segundos</td>
+                                <td class="p-3.5 border-r-2 border-darkBg">2 minutos</td>
+                                <td class="p-3.5 font-display font-extrabold text-base text-cobalt">$390 MXN</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors">
+                                <td class="p-3.5 border-r-2 border-darkBg">61 a 90 segundos</td>
+                                <td class="p-3.5 border-r-2 border-darkBg">3 minutos</td>
+                                <td class="p-3.5 font-display font-extrabold text-base text-cobalt">$490 MXN</td>
+                            </tr>
+                            <tr class="hover:bg-cream transition-colors">
+                                <td class="p-3.5 border-r-2 border-darkBg">91 a 120 segundos</td>
+                                <td class="p-3.5 border-r-2 border-darkBg">4 minutos</td>
+                                <td class="p-3.5 font-display font-extrabold text-base text-cobalt">$550 MXN</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <!-- TARIFAS Y CONDICIONES DE EDICIÓN -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-creamDark/50 p-6 sm:p-8 rounded-3xl border-2 border-darkBg">
-                <div class="lg:col-span-7 space-y-4">
-                    <div class="inline-flex items-center space-x-2 bg-coral text-white px-3 py-1 rounded-full text-xs font-bold border border-darkBg uppercase">
-                        <i class="fa-solid fa-lock"></i>
-                        <span>Condición del servicio</span>
-                    </div>
-                    <h4 class="font-display font-black text-2xl text-darkBg">Paquetes de Edición Mensual</h4>
-                    <p class="text-sm text-darkBg/80 font-medium leading-relaxed">
-                        Para contratar esta modalidad es necesario solicitar un <strong class="text-coral">mínimo de 8 videos mensuales</strong>. Esto garantiza consistencia visual y optimiza los tiempos de producción.
-                    </p>
-
-                    <div class="pt-2 flex flex-wrap gap-4">
-                        <div class="bg-white p-4 rounded-2xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-folder-tree text-2xl text-cobalt"></i>
-                            <div>
-                                <p class="text-xs font-bold text-darkBg">Álbum Compartido</p>
-                                <p class="text-[11px] text-darkBg/60">Organización en la nube</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-brands fa-whatsapp text-2xl text-sage"></i>
-                            <div>
-                                <p class="text-xs font-bold text-darkBg">Envío por WhatsApp</p>
-                                <p class="text-[11px] text-darkBg/60">Archivos individuales</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg flex items-center space-x-3">
+                    <span class="w-8 h-8 rounded-lg bg-coral text-white flex items-center justify-center font-bold text-xs border border-darkBg">!</span>
+                    <p class="type-caption text-darkBg"><strong>Condición del servicio:</strong> Solicitar un mínimo de <strong>8 videos mensuales</strong>.</p>
                 </div>
-
-                <div class="lg:col-span-5 bg-white p-6 rounded-2xl border-2 border-darkBg shadow-retro space-y-4">
-                    <h5 class="font-display font-black text-lg text-darkBg border-b-2 border-darkBg/10 pb-2">Entrega del material</h5>
-                    <p class="text-xs text-darkBg/80 font-medium">
-                        Los videos editados se entregan mediante un <strong>álbum compartido</strong> (Drive/Dropbox) y también se envían como archivos individuales directo a tu <strong>WhatsApp</strong> para publicación inmediata.
-                    </p>
-                    <button onclick="copyToClipboard('Consultando tarifas de edición RAW', 'Solicitud iniciada')" class="w-full btn-pop bg-cobalt text-white border border-darkBg font-bold text-xs py-3 rounded-xl">
-                        Consultar Tarifas por Video
-                    </button>
+                <div class="bg-cream p-4 rounded-xl border-2 border-darkBg flex items-center space-x-3">
+                    <span class="w-8 h-8 rounded-lg bg-sage text-white flex items-center justify-center font-bold text-xs border border-darkBg"><i class="fa-solid fa-cloud"></i></span>
+                    <p class="type-caption text-darkBg"><strong>Entrega del material:</strong> Vía álbum compartido y archivos por WhatsApp.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- SECCIÓN 3: PUBLICIDAD DIGITAL Y CAMPAÑAS EN META ADS -->
-    <section id="meta-ads" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="bg-darkBg text-white rounded-[2.5rem] p-6 sm:p-12 border-3 border-darkBg shadow-retro-xl">
+    <!-- SECCIÓN 3: PUBLICIDAD DIGITAL EN META ADS -->
+    <section id="meta-ads" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="bg-darkBg text-white rounded-[2.5rem] p-6 sm:p-10 border-2.5 border-darkBg shadow-retro-xl">
             
-            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-                <span class="bg-peach text-darkBg font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-darkBg">Impulso Opcional</span>
-                <h2 class="font-display font-black text-3xl sm:text-5xl">3. Publicidad Digital & Meta Ads</h2>
-                <p class="font-display font-bold text-lg text-peach">
-                    ¿Quieres darle mayor alcance a tu contenido y llegar a nuevas personas que puedan convertirse en tus próximos clientes?
-                </p>
-                <p class="text-white/80 font-medium text-sm sm:text-base leading-relaxed">
-                    Puedes complementar cualquiera de mis servicios con publicidad digital en Facebook e Instagram. Cuento con el apoyo de un equipo especializado para desarrollar campañas o realizar inversiones estratégicas.
-                </p>
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-2">
+                <span class="sticker-badge bg-peach text-darkBg rotate-[-1deg]">03. IMPULSO PAGADO</span>
+                <h2 class="type-h2 text-white">Publicidad Digital & Meta Ads</h2>
+                <p class="type-caption text-peach">¿Quieres darle mayor alcance a tu contenido y llegar a nuevos clientes?</p>
+                <p class="type-body text-white/80">Complementa cualquiera de tus servicios con campañas u optimización en Meta Ads (Facebook e Instagram). Servicio completamente opcional y ejecutable mes a mes.</p>
             </div>
 
-            <!-- TABS INTERACTIVAS DE MODALIDADES DE META ADS -->
-            <div class="mb-10">
-                <div class="flex flex-wrap justify-center gap-3 mb-8">
-                    <button onclick="switchTab('opcion-a')" id="btn-opcion-a" class="tab-btn active btn-pop bg-white text-darkBg font-display font-bold text-sm px-6 py-3 rounded-2xl border-2 border-darkBg">
-                        Opción A: Campaña Publicitaria
+            <!-- TABS INTERACTIVAS DE OPCIONES A Y B -->
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center gap-3 mb-6">
+                    <button onclick="switchTab('opcion-a')" id="btn-opcion-a" class="tab-btn active btn-neo bg-white text-darkBg px-5 py-2.5 text-xs">
+                        Opción A. Campaña Publicitaria
                     </button>
-                    <button onclick="switchTab('opcion-b')" id="btn-opcion-b" class="tab-btn btn-pop bg-white text-darkBg font-display font-bold text-sm px-6 py-3 rounded-2xl border-2 border-darkBg">
-                        Opción B: Promoción de Publicaciones
+                    <button onclick="switchTab('opcion-b')" id="btn-opcion-b" class="tab-btn btn-neo bg-white text-darkBg px-5 py-2.5 text-xs">
+                        Opción B. Promoción de Publicaciones
                     </button>
                 </div>
 
                 <!-- CONTENIDO OPCIÓN A -->
-                <div id="opcion-a" class="tab-content bg-white text-darkBg p-6 sm:p-8 rounded-3xl border-2 border-white/20">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="w-8 h-8 bg-coral text-white rounded-lg flex items-center justify-center font-bold">A</span>
-                        <h4 class="font-display font-black text-2xl">Desarrollo y Configuración de Campaña en Meta Ads</h4>
-                    </div>
-                    <p class="text-sm text-darkBg/70 font-medium mb-6">Estructuración técnica desde cero enfocada en conversión o captación de prospectos.</p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-bold">
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-bullseye text-coral text-lg"></i>
-                            <span>Definición del objetivo publicitario</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-sliders text-cobalt text-lg"></i>
-                            <span>Configuración de campaña y anuncios</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-users text-sage text-lg"></i>
-                            <span>Creación y configuración de públicos</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-user-check text-peach text-lg text-darkBg"></i>
-                            <span>Segmentación de cliente ideal</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-earth-americas text-pinky text-lg text-darkBg"></i>
-                            <span>Segmentación geográfica y demográfica</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-chart-pie text-coral text-lg"></i>
-                            <span>Monitoreo, optimización y reporte</span>
-                        </div>
-                    </div>
+                <div id="opcion-a" class="tab-content bg-white text-darkBg p-6 rounded-2xl border-2 border-white/20">
+                    <h4 class="type-h3 text-darkBg mb-2">Opción A. Desarrollo y Configuración de Campaña en Meta Ads</h4>
+                    <p class="type-caption text-darkBg/70 mb-4">Configuración técnica completa de campaña orientada a objetivos de captación o conversión.</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 type-caption font-bold">
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Definición del objetivo publicitario</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Configuración de campaña y anuncios</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Segmentación de audiencia de cliente ideal</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Monitoreo, optimización y reporte</li>
+                    </ul>
                 </div>
 
                 <!-- CONTENIDO OPCIÓN B -->
-                <div id="opcion-b" class="tab-content hidden bg-white text-darkBg p-6 sm:p-8 rounded-3xl border-2 border-white/20">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <span class="w-8 h-8 bg-sage text-white rounded-lg flex items-center justify-center font-bold">B</span>
-                        <h4 class="font-display font-black text-2xl">Promoción Estratégica de Publicaciones Existentes</h4>
-                    </div>
-                    <p class="text-sm text-darkBg/70 font-medium mb-6">Si ya tienes contenido publicado, impulsamos directamente las piezas con mayor potencial.</p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-bold">
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-photo-film text-sage text-lg"></i>
-                            <span>Selección estratégica de hasta 10 publicaciones</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-filter text-cobalt text-lg"></i>
-                            <span>Configuración de públicos y segmentación</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-coins text-peach text-lg"></i>
-                            <span>Criterios de inversión y presupuesto</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-magnifying-glass-chart text-coral text-lg"></i>
-                            <span>Seguimiento continuo de desempeño</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-gauge-high text-pinky text-lg"></i>
-                            <span>Optimización de la inversión realizada</span>
-                        </div>
-                        <div class="bg-cream p-3.5 rounded-xl border border-darkBg flex items-center space-x-3">
-                            <i class="fa-solid fa-file-invoice text-sage text-lg"></i>
-                            <span>Reporte detallado de resultados</span>
-                        </div>
-                    </div>
+                <div id="opcion-b" class="tab-content hidden bg-white text-darkBg p-6 rounded-2xl border-2 border-white/20">
+                    <h4 class="type-h3 text-darkBg mb-2">Opción B. Promoción Estratégica de Publicaciones</h4>
+                    <p class="type-caption text-darkBg/70 mb-4">Potenciamos directamente el rendimiento de tus mejores piezas ya publicadas.</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 type-caption font-bold">
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Selección de hasta 10 publicaciones</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Configuración de públicos y distribución</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Seguimiento continuo de desempeño</li>
+                        <li class="bg-cream p-2.5 rounded-lg border border-darkBg/20">• Reporte mensual de resultados</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- CONSIDERACIONES IMPORTANTES META ADS -->
-            <div class="bg-white/10 p-6 rounded-3xl border border-white/20 space-y-4">
-                <h4 class="font-display font-bold text-lg text-peach flex items-center space-x-2">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span>Consideraciones importantes de publicidad:</span>
-                </h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-white/80 font-medium">
-                    <div class="flex items-start space-x-2">
-                        <i class="fa-solid fa-caret-right text-coral mt-0.5"></i>
-                        <span>El costo adicional corresponde a la gestión, configuración, seguimiento y optimización publicitaria.</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i class="fa-solid fa-caret-right text-coral mt-0.5"></i>
-                        <span>El presupuesto asignado a pauta se paga por separado y directamente a Meta Ads (no incluido en honorarios).</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i class="fa-solid fa-caret-right text-coral mt-0.5"></i>
-                        <span>El servicio contempla 1 campaña o la promoción de hasta 10 publicaciones (no ambas simultáneamente).</span>
-                    </div>
-                    <div class="flex items-start space-x-2">
-                        <i class="fa-solid fa-caret-right text-coral mt-0.5"></i>
-                        <span>Sin compromiso de permanencia: contrátalo solo los meses que necesites e interrúmpelo libremente.</span>
-                    </div>
+            <!-- TABLA DE COSTOS ADICIONALES META ADS -->
+            <div class="bg-white/10 p-5 rounded-2xl border border-white/20 space-y-4">
+                <h4 class="type-h3 text-peach">Inversión mensual adicional por gestión:</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse border border-white/30 rounded-xl overflow-hidden">
+                        <thead>
+                            <tr class="bg-white/20 type-caption font-bold text-white">
+                                <th class="p-3 border-r border-white/30">Servicio contratado base</th>
+                                <th class="p-3">Costo adicional por publicidad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="type-caption font-medium divide-y divide-white/20">
+                            <tr>
+                                <td class="p-3 border-r border-white/30">Planes de creación de contenido</td>
+                                <td class="p-3 font-display font-extrabold text-peach">$1,000 MXN</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border-r border-white/30">Servicio de edición de video</td>
+                                <td class="p-3 font-display font-extrabold text-peach">$1,800 MXN</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p class="type-caption text-white/70 italic">* El presupuesto destinado a publicidad se paga por separado y directamente a Meta Ads.</p>
             </div>
 
         </div>
     </section>
 
     <!-- SECCIÓN 4: POLÍTICAS DE EDICIÓN Y ENTREGA -->
-    <section id="politicas" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span class="bg-sage text-white font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-darkBg">Organización & Calidad</span>
-            <h2 class="font-display font-black text-3xl sm:text-5xl text-darkBg">4. Políticas de Edición y Entrega</h2>
-            <p class="text-darkBg/80 font-medium">Condiciones claras para garantizar una dinámica de trabajo fluida y profesional.</p>
+    <section id="politicas" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-8 space-y-2">
+            <span class="sticker-badge bg-sage text-white">04. MARCO DE TRABAJO</span>
+            <h2 class="type-h2 text-darkBg">Políticas de Edición y Entrega</h2>
+            <p class="type-body text-darkBg/80">Condiciones claras para garantizar entregas organizadas y de calidad.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- Rondas de cambios -->
-            <div class="bg-white border-2 border-darkBg rounded-3xl p-6 sm:p-8 shadow-retro space-y-6">
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-coral text-white rounded-2xl flex items-center justify-center border-2 border-darkBg text-xl font-bold">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-display font-black text-2xl text-darkBg">Rondas de Cambios</h3>
-                        <p class="text-xs text-darkBg/60 font-medium">Ajustes y modificaciones de video</p>
-                    </div>
+            <!-- Rondas de Cambios -->
+            <div class="card-neo p-6 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-10 h-10 bg-coral text-white rounded-xl flex items-center justify-center font-bold text-lg border-2 border-darkBg shadow-retro-sm"><i class="fa-solid fa-rotate-left"></i></span>
+                    <h3 class="type-h3 text-darkBg">Rondas de Cambios</h3>
                 </div>
-
-                <div class="space-y-3">
-                    <div class="bg-cream p-4 rounded-2xl border border-darkBg flex items-center justify-between">
-                        <span class="text-xs font-bold text-darkBg">Primera Ronda de Cambios</span>
-                        <span class="bg-sage text-white text-xs font-extrabold px-3 py-1 rounded-full border border-darkBg">INCLUIDA GRATIS</span>
-                    </div>
-                    <div class="bg-cream p-4 rounded-2xl border border-darkBg flex items-center justify-between">
-                        <span class="text-xs font-bold text-darkBg">Ronda Adicional Posterior</span>
-                        <span class="bg-coral text-white text-xs font-extrabold px-3 py-1 rounded-full border border-darkBg">$120 MXN / video</span>
-                    </div>
-                </div>
-                <p class="text-xs text-darkBg/70 font-medium italic">
-                    * Cada video incluye una ronda inicial de modificaciones para afinación estética y ortográfica.
-                </p>
+                <ul class="space-y-2 type-caption text-darkBg/80">
+                    <li class="bg-cream p-3 rounded-xl border border-darkBg/20 flex justify-between items-center">
+                        <span>1ra Ronda de Modificaciones</span>
+                        <span class="bg-sage text-white font-extrabold px-2.5 py-0.5 rounded-full border border-darkBg">INCLUIDA</span>
+                    </li>
+                    <li class="bg-cream p-3 rounded-xl border border-darkBg/20 flex justify-between items-center">
+                        <span>Ronda Adicional Extra</span>
+                        <span class="bg-coral text-white font-extrabold px-2.5 py-0.5 rounded-full border border-darkBg">$120 MXN / video</span>
+                    </li>
+                </ul>
             </div>
 
             <!-- Tiempos de Entrega -->
-            <div class="bg-white border-2 border-darkBg rounded-3xl p-6 sm:p-8 shadow-retro space-y-6">
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-cobalt text-white rounded-2xl flex items-center justify-center border-2 border-darkBg text-xl font-bold">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-display font-black text-2xl text-darkBg">Tiempos de Entrega</h3>
-                        <p class="text-xs text-darkBg/60 font-medium">Lapsos de respuesta estandarizados</p>
-                    </div>
+            <div class="card-neo p-6 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-10 h-10 bg-cobalt text-white rounded-xl flex items-center justify-center font-bold text-lg border-2 border-darkBg shadow-retro-sm"><i class="fa-solid fa-clock"></i></span>
+                    <h3 class="type-h3 text-darkBg">Tiempos de Entrega</h3>
                 </div>
-
-                <div class="space-y-3">
-                    <div class="bg-cream p-4 rounded-2xl border border-darkBg flex items-center justify-between">
-                        <div>
-                            <p class="text-xs font-bold text-darkBg">Tiempo Estándar de Entrega</p>
-                            <p class="text-[11px] text-darkBg/60">Flujo de trabajo regular</p>
-                        </div>
-                        <span class="bg-cobalt text-white text-xs font-extrabold px-3 py-1 rounded-full border border-darkBg">Máximo 72 hrs</span>
+                <div class="space-y-2 type-caption text-darkBg/80">
+                    <div class="bg-cream p-3 rounded-xl border border-darkBg/20 flex justify-between items-center">
+                        <span>Tiempo Estándar de Entrega</span>
+                        <span class="font-bold text-darkBg">Máximo 72 hrs</span>
                     </div>
-
-                    <div class="bg-cream p-4 rounded-2xl border border-darkBg space-y-2">
-                        <div class="flex justify-between items-center">
-                            <p class="text-xs font-bold text-darkBg">Entrega Urgente (Recepción &lt; 7:00 PM)</p>
-                            <span class="bg-sage text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full border border-darkBg">24 hrs (Sin costo)</span>
+                    <div class="bg-cream p-3 rounded-xl border border-darkBg/20 space-y-1">
+                        <div class="flex justify-between font-bold">
+                            <span>Urgente (&lt; 7:00 p. m.)</span>
+                            <span class="text-sage">24 hrs</span>
                         </div>
-                        <div class="flex justify-between items-center pt-1 border-t border-darkBg/10">
-                            <p class="text-xs font-bold text-darkBg">Entrega Urgente (Recepción &gt; 7:00 PM)</p>
-                            <span class="bg-peach text-darkBg text-xs font-extrabold px-2.5 py-0.5 rounded-full border border-darkBg">48 hrs</span>
+                        <div class="flex justify-between font-bold text-darkBg/70 pt-1 border-t border-darkBg/10">
+                            <span>Urgente (&gt; 7:00 p. m.)</span>
+                            <span class="text-cobalt">48 hrs</span>
                         </div>
                     </div>
                 </div>
@@ -766,136 +630,73 @@
     </section>
 
     <!-- SECCIÓN 5: ALCANCES Y SERVICIOS NO INCLUIDOS -->
-    <section id="alcances" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="bg-creamDark/60 border-2 border-darkBg rounded-[2.5rem] p-6 sm:p-12 shadow-retro-lg">
-            
-            <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-                <span class="bg-coral text-white font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-darkBg">Transparencia Total</span>
-                <h2 class="font-display font-black text-3xl sm:text-5xl text-darkBg">5. Alcances y Servicios No Incluidos</h2>
-                <p class="text-darkBg/80 font-medium text-sm sm:text-base">
-                    Para mantener claridad sobre las responsabilidades de cada servicio, ten en cuenta las siguientes delimitaciones:
-                </p>
+    <section id="alcances" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="bg-creamDark/60 border-2.5 border-darkBg rounded-3xl p-6 sm:p-10 shadow-retro-lg">
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-2">
+                <span class="sticker-badge bg-coral text-white">05. DELIMITACIONES</span>
+                <h2 class="type-h2 text-darkBg">Alcances y Servicios No Incluidos</h2>
+                <p class="type-body text-darkBg/80">Transparencia desde el día uno sobre lo que contemplan nuestros paquetes.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm">
-                    <div class="flex items-center space-x-2 text-coral font-bold text-sm">
-                        <i class="fa-solid fa-video-slash"></i>
-                        <span>Grabación Presencial</span>
-                    </div>
-                    <p class="text-xs text-darkBg/70 font-medium">Los planes contemplan la edición del material proporcionado por el cliente. No incluyen grabaciones presenciales ni sesiones fotográficas.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 type-caption">
+                <div class="bg-white p-4 rounded-xl border-2 border-darkBg space-y-1">
+                    <span class="font-bold text-coral uppercase block">🚫 Grabación Presencial</span>
+                    <p class="text-darkBg/70 font-medium">No se incluyen sesiones fotográficas ni producción audiovisual en sitio.</p>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm">
-                    <div class="flex items-center space-x-2 text-coral font-bold text-sm">
-                        <i class="fa-solid fa-comments-dollar"></i>
-                        <span>Community Management</span>
-                    </div>
-                    <p class="text-xs text-darkBg/70 font-medium">Incluye la publicación del contenido, pero no la administración de comunidad, respuesta a DMs o atención a prospectos.</p>
+                <div class="bg-white p-4 rounded-xl border-2 border-darkBg space-y-1">
+                    <span class="font-bold text-coral uppercase block">🚫 Community Management</span>
+                    <p class="text-darkBg/70 font-medium">No contempla respuesta a comentarios, DMs o atención a prospectos.</p>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm">
-                    <div class="flex items-center space-x-2 text-coral font-bold text-sm">
-                        <i class="fa-solid fa-rectangle-ad"></i>
-                        <span>Publicidad Pagada Base</span>
-                    </div>
-                    <p class="text-xs text-darkBg/70 font-medium">La gestión de pauta no está incluida en los planes base. Puede contratarse opcionalmente como servicio adicional.</p>
+                <div class="bg-white p-4 rounded-xl border-2 border-darkBg space-y-1">
+                    <span class="font-bold text-coral uppercase block">🚫 Inversión Publicitaria</span>
+                    <p class="text-darkBg/70 font-medium">El presupuesto asignado a pauta en anuncios se gestiona por separado.</p>
                 </div>
-
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm">
-                    <div class="flex items-center space-x-2 text-coral font-bold text-sm">
-                        <i class="fa-solid fa-wallet"></i>
-                        <span>Inversión Publicitaria Meta</span>
-                    </div>
-                    <p class="text-xs text-darkBg/70 font-medium">El presupuesto destinado a anuncios se paga directamente a Meta Ads y no forma parte de mis honorarios de gestión.</p>
-                </div>
-
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm">
-                    <div class="flex items-center space-x-2 text-coral font-bold text-sm">
-                        <i class="fa-solid fa-chess"></i>
-                        <span>Estrategia de Marca desde Cero</span>
-                    </div>
-                    <p class="text-xs text-darkBg/70 font-medium">Los planes parten de los objetivos que proporcione el cliente; no incluyen consultoría de negocio ni branding completo.</p>
-                </div>
-
-                <div class="bg-white p-5 rounded-2xl border-2 border-darkBg space-y-2 shadow-retro-sm flex flex-col justify-center items-center text-center">
-                    <i class="fa-solid fa-handshake-simple text-3xl text-sage mb-1"></i>
-                    <p class="font-display font-bold text-sm text-darkBg">Trabajo en Equipo Transparente</p>
-                    <p class="text-[11px] text-darkBg/60 font-medium">Cuentas claras para relaciones profesionales duraderas.</p>
-                </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER & LLAMADO A LA ACCIÓN FINAL -->
-    <footer class="mt-16 bg-darkBg text-white border-t-3 border-darkBg pt-16 pb-12 px-4 sm:px-8">
-        <div class="max-w-4xl mx-auto text-center space-y-8 pb-12 border-b border-white/10">
+    <!-- FOOTER / CTA FINAL -->
+    <footer class="mt-12 bg-darkBg text-white border-t-2.5 border-darkBg py-14 px-4 sm:px-8">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <span class="sticker-badge bg-peach text-darkBg rotate-[1deg]">¿LISTO PARA EMPEZAR?</span>
             
-            <div class="inline-block bg-peach text-darkBg font-display font-extrabold text-xs uppercase px-4 py-1.5 rounded-full border border-darkBg">
-                ¿Listo para dar el siguiente paso?
-            </div>
-
-            <h2 class="font-display font-black text-4xl sm:text-6xl leading-tight">
-                Tú decides cuándo impulsar tu marca. Yo me encargo de <span class="text-coral">ayudarte a hacerlo estratégicamente.</span>
+            <h2 class="type-titan text-white">
+                Tú decides cuándo impulsar tu marca. Yo me encargo de <span class="text-coral">ayudarte a hacerlo.</span>
             </h2>
 
-            <p class="text-white/80 font-medium text-base max-w-2xl mx-auto">
+            <p class="type-body text-white/80 max-w-xl mx-auto">
                 Trabajemos juntos para que tu presencia digital comunique todo el valor que tienes para ofrecer.
             </p>
 
-            <div class="pt-4 flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/?text=Hola!%20Quiero%20agendar%20una%20reunión%20para%20revisar%20mi%20plan%20de%20contenido" target="_blank" class="btn-pop bg-sage text-white border-2 border-darkBg font-extrabold text-base px-8 py-4 rounded-2xl flex items-center space-x-3">
+            <div class="pt-2">
+                <a href="https://wa.me/?text=Hola!%20Me%20interesa%20contratar%20tus%20servicios" target="_blank" class="btn-neo bg-sage text-white px-8 py-4 text-base">
                     <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>Contactar por WhatsApp</span>
+                    <span>Contactar vía WhatsApp</span>
                 </a>
             </div>
         </div>
-
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-white/50 font-medium gap-4">
-            <p>© 2026 Bebito Media. Dossier de Servicios de Creación de Contenido & Marketing Digital.</p>
-            <p class="flex items-center space-x-1">
-                <span>Diseñado con actitud jovial</span>
-                <i class="fa-solid fa-sparkles text-peach"></i>
-            </p>
-        </div>
     </footer>
 
-    <!-- INTERACTIVIDAD JS -->
     <script>
         function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.remove('hidden');
             document.getElementById('btn-' + tabId).classList.add('active');
         }
 
-        function copyToClipboard(text, message) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            showToast(message || '¡Copiado al portapapeles!');
+        function selectPlan(planName) {
+            const msg = `Plan seleccionado: ${planName}`;
+            showToast(msg);
         }
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = msg;
-
+            document.getElementById('toast-message').innerText = msg;
             toast.classList.remove('translate-y-32', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
-
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-32', 'opacity-0');
